@@ -45,7 +45,8 @@
 
     <a class="botao-whatsapp"
        href="https://wa.me/5527995122158"
-       target="_blank">
+       target="_blank"
+onclick="return gtag_report_conversion('https://wa.me/5527995122158');">
 
         💬 Agendar Visita pelo WhatsApp
 
@@ -163,9 +164,10 @@ Há anos atuando no mercado imobiliário, ofereço atendimento personalizado, tr
         <li>✔ Resposta rápida</li>
     </ul>
 
-    <a class="botao-whatsapp"
-       href="https://wa.me/5527995122158"
-       target="_blank">
+    <<a class="botao-whatsapp"
+    href="https://wa.me/5527995122158"
+    target="_blank"
+    onclick="return gtag_report_conversion('https://wa.me/5527995122158');">
 
        📲 Chamar no WhatsApp
 
@@ -387,6 +389,25 @@ Há anos atuando no mercado imobiliário, ofereço atendimento personalizado, tr
     </div>
 
 </footer>
+
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof url !== 'undefined') {
+      window.location = url;
+    }
+  };
+
+  gtag('event', 'conversion', {
+    'send_to': 'AW-18266778847/26-pCKWHuMQcEN_Zo4ZE',
+    'value': 1.0,
+    'currency': 'BRL',
+    'event_callback': callback
+  });
+
+  return false;
+}
+</script>
 
 </body>
 
