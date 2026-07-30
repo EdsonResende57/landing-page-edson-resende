@@ -390,11 +390,20 @@ Há anos atuando no mercado imobiliário, ofereço atendimento personalizado, tr
 
 </footer>
 
+
 <script>
 function gtag_report_conversion(url) {
+
+  if (typeof gtag !== 'function') {
+    if (url) {
+      window.open(url, '_blank');
+    }
+    return true;
+  }
+
   var callback = function () {
-    if (typeof url !== 'undefined') {
-      window.location = url;
+    if (url) {
+      window.open(url, '_blank');
     }
   };
 
@@ -405,9 +414,12 @@ function gtag_report_conversion(url) {
     'event_callback': callback
   });
 
-  return true;
+  setTimeout(callback, 1000);
+
+  return false;
 }
 </script>
+
 
 </body>
 
