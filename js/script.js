@@ -6,8 +6,8 @@ miniaturas.forEach(function(miniatura){
 
     miniatura.addEventListener("click", function(){
 
-        fotoGrande.src = this.src;
-
+        fotoGrande.src = this.src;    
+        
         miniaturas.forEach(function(img){
             img.classList.remove("ativa");
         });
