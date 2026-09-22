@@ -48,3 +48,19 @@ function gtag_report_conversion(url) {
   // e abra o WhatsApp em outra aba, mantendo a landing page aberta.
   return true;
 }
+
+// Rastreamento separado da abertura do WhatsApp.
+// Não cancela o clique nem altera o target="_blank" dos links.
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".botao-whatsapp").forEach(function (botao) {
+    botao.addEventListener("click", function () {
+      if (typeof gtag === "function") {
+        gtag("event", "conversion", {
+          "send_to": "AW-18266778847/26-pCKWHuMQcEN_Zo4ZE",
+          "value": 1.0,
+          "currency": "BRL"
+        });
+      }
+    });
+  });
+});
