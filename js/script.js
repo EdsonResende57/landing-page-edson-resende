@@ -36,28 +36,15 @@ function trocarFoto(src){
 
 // Conversão do Google Ads para cliques nos botões/links de contato
 function gtag_report_conversion(url) {
-  var abriuWhatsapp = false;
-
-  var callback = function () {
-    if (!abriuWhatsapp && typeof(url) != 'undefined') {
-      abriuWhatsapp = true;
-      window.location.href = url;
-    }
-  };
-
   if (typeof gtag === 'function') {
     gtag('event', 'conversion', {
       'send_to': 'AW-18266778847/26-pCKWHuMQcEN_Zo4ZE',
       'value': 1.0,
-      'currency': 'BRL',
-      'event_callback': callback
+      'currency': 'BRL'
     });
-
-    // Garante a abertura do WhatsApp mesmo se o callback do Google não responder.
-    setTimeout(callback, 1000);
-  } else {
-    callback();
   }
 
-  return false;
+  // Permite que o link original respeite target="_blank"
+  // e abra o WhatsApp em outra aba, mantendo a landing page aberta.
+  return true;
 }
